@@ -809,11 +809,16 @@ void disown_object_item(char *call_sign, char *new_owner)
   if (f == NULL)
   {
     fprintf(stderr,"Couldn't open %s\n",file);
+    if (f_temp != NULL)
+    {
+      (void)fclose(f_temp);
+    }
     return;
   }
   if (f_temp == NULL)
   {
     fprintf(stderr,"Couldn't open %s\n",file_temp);
+    (void)fclose(f);
     return;
   }
 

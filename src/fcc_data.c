@@ -346,6 +346,7 @@ int search_fcc_data_appl(char *callsign, FccAppl *data)
     {
       // Error occurred
       fprintf(stderr,"Search:Could not read FCC database index(1): %s\n",appl_file_path);
+      (void)fclose(fndx);
       return(0);
     }
 
@@ -363,6 +364,7 @@ int search_fcc_data_appl(char *callsign, FccAppl *data)
       {
         // Error occurred
         fprintf(stderr,"Search:Could not read FCC database index(2): %s\n", appl_file_path );
+        (void)fclose(fndx);
         return(0);
       }
     }

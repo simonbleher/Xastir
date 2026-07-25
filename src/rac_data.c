@@ -248,6 +248,7 @@ int search_rac_data(char *callsign, rac_record *data)
       fprintf(stderr,
               "Search:Could not read RAC data base index: %s\n",
               amacall_path );
+      (void)fclose(fndx);
       return (0);
     }
     memcpy(char_offset, &index[6], sizeof(char_offset));
@@ -262,6 +263,7 @@ int search_rac_data(char *callsign, rac_record *data)
         fprintf(stderr,
                 "Search:Could not read RAC data base index(2): %s\n",
                 amacall_path );
+        (void)fclose(fndx);
         return (0);
       }
     }
